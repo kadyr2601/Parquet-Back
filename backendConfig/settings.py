@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-3y2@3qchkk+6p$vmn8q1frd8ar1bm&6v!*8yb@gdeu=llu8n-+
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'www.fixworks-parquet.com', 'fixworks-parquet.com']
+ALLOWED_HOSTS = ['185.185.68.201', '127.0.0.1', 'www.fixworks-parquet.com', 'fixworks-parquet.com']
 
 INSTALLED_APPS = [
     'jazzmin',
@@ -79,8 +79,9 @@ AUTH_PASSWORD_VALIDATORS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    'www.fixworks-parquet.com',
-    'fixworks-parquet.com'
+    'http://185.185.68.201',
+    'https://www.fixworks-parquet.com',
+    'https://fixworks-parquet.com'
 ]
 
 JAZZMIN_SETTINGS = {
@@ -126,5 +127,12 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',
+    'http://185.185.68.201',
+    'https://www.fixworks-parquet.com',
+    'https://fixworks-parquet.com'
+]

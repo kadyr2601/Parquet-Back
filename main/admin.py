@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import HomePage, Parquet, AboutUsCard, AboutUs, Projects, Reviews
+from main.models import HomePage, Parquet, AboutUsCard, AboutUs, Projects, Reviews, OurGallery
 
 admin.site.register(HomePage)
 
@@ -14,3 +14,4 @@ admin.site.register(AboutUs, AboutUsAdmin)
 admin.site.register(Parquet)
 admin.site.register(Reviews)
 admin.site.register(Projects)
+admin.site.register(OurGallery)

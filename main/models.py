@@ -61,6 +61,13 @@ class Reviews(models.Model):
         verbose_name_plural = 'Reviews Banner'
 
 
+class OurGallery(models.Model):
+    image = models.ImageField(upload_to='OurGallery/')
+
+    class Meta:
+        verbose_name = 'Our Gallery Banner'
+        verbose_name_plural = 'Our Gallery Banner'
+
 class HomePage(models.Model):
     main_banner = models.FileField(upload_to='main_banner/')
     parquet_sanding = models.OneToOneField(Parquet, on_delete=models.CASCADE, related_name='home_page_sanding', null=True, blank=True)
@@ -70,6 +77,7 @@ class HomePage(models.Model):
     about_us = models.OneToOneField(AboutUs, on_delete=models.CASCADE, related_name='home_page_about_us', null=True, blank=True)
     projects = models.ManyToManyField(Projects, blank=True)
     reviews = models.ManyToManyField(Reviews, blank=True)
+    gallery = models.ManyToManyField(OurGallery, blank=True)
 
     def __str__(self):
         return "Home Page Instance"
