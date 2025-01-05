@@ -70,6 +70,7 @@ class OurGallery(models.Model):
 
 class HomePage(models.Model):
     main_banner = models.FileField(upload_to='main_banner/')
+    section_image = models.ImageField(upload_to='section_image/')
     parquet_sanding = models.OneToOneField(Parquet, on_delete=models.CASCADE, related_name='home_page_sanding', null=True, blank=True)
     parquet_installation = models.OneToOneField(Parquet, on_delete=models.CASCADE, related_name='home_page_installation', null=True, blank=True)
     parquet_refinishing = models.OneToOneField(Parquet, on_delete=models.CASCADE, related_name='home_page_refinishing', null=True, blank=True)
