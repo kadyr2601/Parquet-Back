@@ -1,5 +1,11 @@
 from django.contrib import admin
-from main.models import HomePage, Parquet, AboutUsCard, AboutUs, Projects, Reviews, OurGallery
+from main.models import HomePage, Parquet, AboutUsCard, AboutUs, Projects, ParquetSanding, ParquetInstallation, \
+    ParquetRefinishing, LocalRestoration, Reviews, OurGallery
+
+admin.site.register(ParquetSanding)
+admin.site.register(ParquetInstallation)
+admin.site.register(ParquetRefinishing)
+admin.site.register(LocalRestoration)
 
 admin.site.register(HomePage)
 

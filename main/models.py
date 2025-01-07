@@ -94,3 +94,87 @@ class HomePage(models.Model):
     class Meta:
         verbose_name = 'Home Page'
         verbose_name_plural = 'Home Page'
+
+
+class ParquetSanding(models.Model):
+    video = models.FileField(upload_to='ParquetSanding/')
+    image = models.ImageField(upload_to='ParquetSanding/')
+    description_ru = models.TextField()
+    description_en = models.TextField()
+
+    def __str__(self):
+        return "Parquet Sanding Instance"
+
+    def clean(self):
+        if ParquetSanding.objects.exists() and not self.pk:
+            raise ValidationError("Only one Parquet Sanding instance is allowed.")
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super(ParquetSanding, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'Parquet Sanding Details'
+        verbose_name_plural = 'Parquet Sanding Details'
+
+
+class ParquetInstallation(models.Model):
+    title_ru = models.CharField(max_length=512)
+    title_en = models.CharField(max_length=512)
+    description_ru = models.TextField()
+    description_en = models.TextField()
+    image = models.ImageField(upload_to='ParquetInstallation/')
+
+    class Meta:
+        verbose_name = 'Parquet Installation Details'
+        verbose_name_plural = 'Parquet Installation Details'
+
+
+class ParquetRefinishing(models.Model):
+    title_ru = models.CharField(max_length=512)
+    title_en = models.CharField(max_length=512)
+    price_ru = models.CharField(max_length=512)
+    price_en = models.CharField(max_length=512)
+    description_ru = models.TextField()
+    description_en = models.TextField()
+    image = models.ImageField(upload_to='ParquetRefinishing/')
+
+    class Meta:
+        verbose_name = 'Parquet Refinishing Details'
+        verbose_name_plural = 'Parquet Refinishing Details'
+
+    def __str__(self):
+        return "Parquet Refinishing Instance"
+
+    def clean(self):
+        if ParquetRefinishing.objects.exists() and not self.pk:
+            raise ValidationError("Only one Parquet Refinishing instance is allowed.")
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super(ParquetRefinishing, self).save(*args, **kwargs)
+
+
+class LocalRestoration(models.Model):
+    background_image = models.ImageField(upload_to='LocalRestoration/')
+    description_ru = models.TextField()
+    description_en = models.TextField()
+    image1 = models.ImageField(upload_to='LocalRestoration/')
+    image2 = models.ImageField(upload_to='LocalRestoration/')
+    image3 = models.ImageField(upload_to='LocalRestoration/')
+
+    class Meta:
+        verbose_name = 'Local Restoration Details'
+        verbose_name_plural = 'Local Restoration Details'
+
+    def __str__(self):
+        return "Local Restoration Instance"
+
+    def clean(self):
+        if LocalRestoration.objects.exists() and not self.pk:
+            raise ValidationError("Only one Local Restoration instance is allowed.")
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super(LocalRestoration, self).save(*args, **kwargs)
+
