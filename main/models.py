@@ -97,21 +97,15 @@ class HomePage(models.Model):
 
 
 class ParquetSanding(models.Model):
-    video = models.FileField(upload_to='ParquetSanding/')
-    image = models.ImageField(upload_to='ParquetSanding/')
-    description_ru = models.TextField()
-    description_en = models.TextField()
+    image_before = models.ImageField(upload_to='ParquetSanding/')
+    image_after = models.ImageField(upload_to='ParquetSanding/')
+    title_ru = models.TextField()
+    title_en = models.TextField()
+    price_ru = models.TextField()
+    price_en = models.TextField()
 
     def __str__(self):
         return "Parquet Sanding Instance"
-
-    def clean(self):
-        if ParquetSanding.objects.exists() and not self.pk:
-            raise ValidationError("Only one Parquet Sanding instance is allowed.")
-
-    def save(self, *args, **kwargs):
-        self.full_clean()
-        super(ParquetSanding, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Parquet Sanding Details'

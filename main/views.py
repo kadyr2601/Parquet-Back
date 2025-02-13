@@ -13,8 +13,8 @@ class HomePageView(views.APIView):
 
 class ParquetSandingView(views.APIView):
     def get(self, request):
-        parquet_sanding = ParquetSanding.objects.first()
-        serializer = ParquetSandingSerializer(parquet_sanding)
+        parquet_sanding = ParquetSanding.objects.all()
+        serializer = ParquetSandingSerializer(parquet_sanding, many=True)
         return response.Response(serializer.data)
 
 
